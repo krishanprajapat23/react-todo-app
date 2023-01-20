@@ -1,0 +1,119 @@
+$yellowclr:#fdce4b;
+$black: #333;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #314152;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  display: inline-block;
+  background-color: $yellowclr;
+  font-size: 12px;
+  line-height: 22px;
+  color: #314152;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border: none;
+  margin: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  $black-space: nowrap;
+  outline: 0;
+  transition: all 0.3s ease;
+  &:hover {
+    background-color: #333;
+    color: $yellowclr;
+  }
+  &.btn-1 {
+    margin-left: 0;
+  }
+}
+
+.app {
+  .title {
+    text-align: center;
+    padding: 1rem;
+  }
+  padding: 2rem 1rem;
+  margin: 2rem auto;
+
+  input[type="text"] {
+    width: 100%;
+    margin: 0.5rem auto;
+    padding: 1rem;
+    text-indent: 1em;
+    border: 0;
+    border-radius: 4px;
+    font-weight: 700;
+    outline: none;
+    background: #333;
+    color: #fff;
+    font-size: 1rem;
+  }
+
+  .lefttodo {
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.25rem;
+    border-bottom: 1px solid $yellowclr;
+  }
+}
+
+.list-item {
+  .styled-checkbox {
+    position: absolute; // take it out of document flow
+    opacity: 0; // hide it
+
+    & + label {
+      position: relative;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    // Box.
+    & + label:before {
+      content: "";
+      margin-right: 10px;
+      display: inline-block;
+      vertical-align: text-top;
+      width: 18px;
+      height: 18px;
+      background: #fff;
+    }
+
+    // Box hover
+    &:hover + label:before {
+      background: $yellowclr;
+    }
+
+    // Box checked
+    &:checked + label:before {
+      background: $yellowclr;
+    }
+    &:checked + label:after {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 8px;
+      background: $black;
+      width: 2px;
+      height: 2px;
+      box-shadow: 2px 0 0 $black, 4px 0 0 $black, 4px -2px 0 $black,
+        4px -4px 0 $black, 4px -6px 0 $black, 4px -8px 0 $black;
+      transform: rotate(45deg);
+    }
+  }
+}

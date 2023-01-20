@@ -25,7 +25,7 @@ function App() {
   }
 
   const handleAddTodo = (e) => {
-    const name = todoNameRef.current.value;
+    const name = (todoNameRef.current.value).trim();
     if (name === "") return;
     // console.log(name);
     setTodos((prevTodos) => {
@@ -40,18 +40,17 @@ function App() {
     setTodos(newTodos);
   }
   return (
-    <div>
-      <>
+    <div className="app">
+        <h1 className="title">Todo App</h1>
         <input ref={todoNameRef} type="text" name="todo" id="" />
-        <button type="button" className="btn" onClick={handleAddTodo}>
+        <button type="button" className="btn btn-1" onClick={handleAddTodo}>
           Add Todo
         </button>
-        <button type="button" className="btn" onClick={handleClearTodo}>
+        <button type="button" className="btn btn-2" onClick={handleClearTodo}>
           Clear Complete
         </button>
         <TodoList todos={todos} toggleTodo={toggleTodo}/>
-        <div>{todos.filter(todo => !todo.complete).length} left Todo</div>
-      </>
+        <p className="lefttodo">{todos.filter(todo => !todo.complete).length} left Todo</p>
     </div>
   );
 }
